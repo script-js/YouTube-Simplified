@@ -1,8 +1,7 @@
 var vidID = new URLSearchParams(window.location.search).get("v")
-alert(vidID)
 var ver = "2.2"
 
-if (vidID && !vidID.includes("null")) {
+if (!vidID) {
   if (sessionStorage.getItem("extInstalled")) {
     location.replace("//youtube.com")
   } else {
