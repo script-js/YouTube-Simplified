@@ -1,4 +1,5 @@
 var vidID = new URLSearchParams(window.location.search).get("v")
+alert(vidID)
 var ver = "2.2"
 
 if (vidID) {
