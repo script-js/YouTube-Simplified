@@ -1,7 +1,7 @@
 var vidID = new URLSearchParams(window.location.search).get("v")
 var ver = "2.2"
 
-if (vidID == "https://ytadblock.script-js.repl.co/" || vidID == "") {
+if (vidID) {
   if (sessionStorage.getItem("extInstalled")) {
     location.replace("//youtube.com")
   } else {
