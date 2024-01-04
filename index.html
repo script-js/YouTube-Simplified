@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>YouTube Simplified</title>
+  <link rel="icon" href="icon-fav.png" />
+  <link href="//script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+  html {
+    height: 100%;
+    width: 100%;
+  }
+
+  a:hover {
+    text-decoration: none;
+    text-color: red;
+  }
+  img:hover {
+    text-decoration: none;
+    text-color: red;
+  }
+</style>
+<body style="height: 240%;">
+  <script>
+  if (localStorage.getItem("bypasspage") == "1") {
+    var vidID = new URLSearchParams(window.location.search).get("v")
+    location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
+  }
+  </script>
+  <script src="//script-js.github.io/js-css/browserDetect.js"></script>
+  <a href="//youtube.com"><button style="position: absolute; left: 20px; top: 2%;height: 50px;width: 100px;text-align: center;"><img src="icon.png" width="16px"> YouTube</button></a>
+  <button id="openytplayerBTN" style="position: absolute; right: 20px; top: 3%;">Exit YouTube Simplified</button>
+  <br>
+  <div style="display: block; height: 3%;">&nbsp;</div>
+  <iframe id="ytplayer" width="65%" frameborder="0" height="30%" allowfullscreen style="margin: 0 auto;display: block;" style="border-radius: 15px;"></iframe>
+  <div style="text-align: center;" id="downloadBTN"><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblocker-redirector/"><button>Download Extension for Firefox</button></a><a href="crx.html"><button>Download Extension for Chrome</button></a></div>
+  <script src="script.js"></script>
+  <script>
+  if (localStorage.getItem("vptype") == "1") {
+    ytplayer.width = "96%"
+  }
+
+  if (localStorage.getItem("vptype") == "2") {
+    ytplayer.height = "35%"
+  }
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key == "Home") {
+      location.replace("//youtube.com")
+    }
+  })
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key == "Escape" && e.repeat) {
+      sessionStorage.setItem("ytabnoredir","1")
+      location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
+      console.log("home")
+    }
+  })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>YouTube Simplified</title>
+  <link rel="icon" href="icon-fav.png" />
+  <link href="//script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+</head>
+
+  <body style="text-align: center;">
+     <script src="//script-js.github.io/js-css/browserDetect.js"></script>
+    
+    <img src="icon-hp.png" style="margin:auto;" width="300" />
+    <h1>YouTube Simplified</h1>
+    <h3>Experience a simple ad-free YouTube player</h3>
+    <input id="rediri" placeholder="Youtube URL" /><button onclick="convert(rediri.value)">Go</button>
+    <p></p>
+    <div style="text-align: center;" id="downloadBTN"><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension for Firefox</button></a><a href="crx.html"><button>Download Extension for Chrome</button></a></div>
+    <script>
+      function convert(item) {
+        var filter1 = item.replace("www.youtube.com/watch","ytadblock.script-js.repl.co/")
+        var filter2 = filter1.replace("youtu.be/","ytadblock.script-js.repl.co/?v=")
+location.replace(filter2.replace("youtube.com/watch","ytadblock.script-js.repl.co/"))
+      }
+      if (getBrowser()) {
+  if (getBrowser() == "CHROMIUM") {
+    downloadBTN.innerHTML = '<a href="crx.html"><button>Download Extension</button></a></div>'
+  }
+  if (getBrowser() == "FIREFOX") {
+    downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
+  }
+  if (getBrowser() == "IE") {
+    alert("bro is still using internet explorer")
+    alert("Error Displaying Webpage")
+    alert("Error Displaying Webpage")
+    alert("Error Displaying Webpage")
+    alert("Error Displaying Webpage")
+    alert("Error Displaying Webpage")
+  }
+  if (sessionStorage.getItem("extInstalled")) {
+    downloadBTN.innerHTML = '<strong>Tip:</strong> Press "Home" on your keyboard to go to the YouTube homepage'
+  }
+} else {
+  alert("Your browser couldn't be identified. Please switch to Firefox, Chrome, or any Chromium based browser.")
+}
+    </script>
+    <script src="https://replit.com/public/js/replit-badge-v2.js" theme="teal" position="bottom-right"></script>
+  </body>
+
+</html>
+  
