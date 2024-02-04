@@ -1,5 +1,5 @@
 var vidID = new URLSearchParams(window.location.search).get("v")
-var ver = "3.1"
+var ver = "3.2"
 
 if (!vidID) {
   if (sessionStorage.getItem("extInstalled")) {
