@@ -20,13 +20,13 @@
     <div style="text-align: center;" id="downloadBTN"><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension for Firefox</button></a><a href="crx.html"><button>Download Extension for Chrome</button></a></div>
     <script>
       function convert(item) {
-        var filter1 = item.replace("www.youtube.com/watch","ytadblock.script-js.repl.co/")
-        var filter2 = filter1.replace("youtu.be/","ytadblock.script-js.repl.co/?v=")
+        var filter1 = item.replace("www.youtube.com/watch","ytsimplified.pages.dev/")
+        var filter2 = filter1.replace("youtu.be/","ytsimplified.pages.dev/?v=")
 location.replace(filter2.replace("youtube.com/watch","ytadblock.script-js.repl.co/"))
       }
       if (getBrowser()) {
   if (getBrowser() == "CHROMIUM") {
-    downloadBTN.innerHTML = '<a href="crx.html"><button>Download Extension</button></a></div>'
+    downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
   }
   if (getBrowser() == "FIREFOX") {
     downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
