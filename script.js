@@ -21,11 +21,7 @@ if (!vidID) {
 
 if (getBrowser()) {
   if (getBrowser() == "CHROMIUM") {
-    if (sessionStorage.getItem("extInstalled")) {
-      downloadBTN.innerHTML = '<a href="crx-update.html"><button>Download Extension</button></a></div>'
-    } else {
-      downloadBTN.innerHTML = '<a href="crx.html"><button>Download Extension</button></a></div>'
-    }
+      downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
   }
   if (getBrowser() == "FIREFOX") {
     downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
@@ -43,9 +39,9 @@ if (getBrowser()) {
     downloadBTN.innerHTML = ""
   } else {
     if (getBrowser() == "FIREFOX") {
-      alert("There is a new version of YouTube Simplified Redirector. Check for updates in about:addons to update.")
+      alert("There is a new version of YouTube Simplified Redirector.")
     } else {
-    alert("There is a new version of YouTube Simplified Redirector. Click Download Extension to start the update")
+    alert("There is a new version of YouTube Simplified Redirector.")
   }
   }
   }
@@ -59,9 +55,9 @@ if (sessionStorage.getItem("extInstalled")) {
     downloadBTN.innerHTML = ""
   } else {
     if (getBrowser() == "FIREFOX") {
-      alert("There is a new version of YouTube Simplified Redirector. Check for updates in about:addons to update.")
+      alert("There is a new version of YouTube Simplified Redirector.")
     } else {
-    alert("There is a new version of YouTube Simplified Redirector. Click Download Extension to start the update")
+    alert("There is a new version of YouTube Simplified Redirector.")
   }
   }
   }
