@@ -1,4 +1,5 @@
 var vidID = new URLSearchParams(window.location.search).get("v")
+var list = new URLSearchParams(window.location.search).get("list")
 var ver = "3.2"
 
 if (!vidID) {
@@ -8,8 +9,8 @@ if (!vidID) {
     location.replace("/home.html")
   }
 } else {
-  if (vidID.includes("?")) {
-    ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "&autoplay=1";
+  if (list) {
+    ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
   }
@@ -27,7 +28,6 @@ if (getBrowser()) {
     downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
   }
   if (getBrowser() == "IE") {
-    alert("bro is still using internet explorer")
     alert("Error Displaying Webpage")
     alert("Error Displaying Webpage")
     alert("Error Displaying Webpage")
