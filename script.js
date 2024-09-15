@@ -2,6 +2,12 @@ var vidID = new URLSearchParams(window.location.search).get("v")
 var list = new URLSearchParams(window.location.search).get("list")
 var ver = "3.2"
 
+async function getVD() {
+  var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
+    vt.innerText = oembed.title
+    vc.innerText = oembed.author_name
+}
+
 if (!vidID) {
   if (sessionStorage.getItem("extInstalled")) {
     location.replace("//youtube.com")
@@ -19,12 +25,6 @@ if (!vidID) {
       sessionStorage.setItem("ytabnoredir","1")
       location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
     }
-}
-
-async function getVD() {
-  var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
-    vt.innerText = oembed.title
-    vc.innerText = oembed.author_name
 }
 
 if (getBrowser()) {
