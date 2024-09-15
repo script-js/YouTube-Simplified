@@ -11,10 +11,7 @@ if (!vidID) {
 } else {
   if (list) {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
-    /* var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
-    vt.innerText = oembed.title
-    vc.innerText = oembed.author_name
-    */
+    getVD()
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
   }
@@ -22,6 +19,12 @@ if (!vidID) {
       sessionStorage.setItem("ytabnoredir","1")
       location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
     }
+}
+
+async function getVD() {
+  var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
+    vt.innerText = oembed.title
+    vc.innerText = oembed.author_name
 }
 
 if (getBrowser()) {
