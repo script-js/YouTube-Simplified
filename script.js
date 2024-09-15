@@ -11,6 +11,9 @@ if (!vidID) {
 } else {
   if (list) {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
+    var oembed = fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidId + "&format=json").json()
+    vt.innerText = oembed.title
+    vc.innerText = oembed.author_name
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
   }
