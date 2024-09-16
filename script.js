@@ -15,11 +15,11 @@ if (!vidID) {
     location.replace("/home.html")
   }
 } else {
-  getVD()
   if (list) {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
+    getVD()
   }
     openytplayerBTN.onclick = function() {
       sessionStorage.setItem("ytabnoredir","1")
