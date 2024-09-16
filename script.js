@@ -17,7 +17,7 @@ if (!vidID) {
 } else {
   if (list) {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
-    getVD()
+    setTimeout(getVD,1000)
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
   }
