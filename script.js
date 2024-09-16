@@ -15,9 +15,9 @@ if (!vidID) {
     location.replace("/home.html")
   }
 } else {
+  getVD()
   if (list) {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
-    setTimeout(getVD,1000)
   } else {
     ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
   }
