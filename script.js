@@ -1,36 +1,38 @@
-var vidID = new URLSearchParams(window.location.search).get("v")
-var list = new URLSearchParams(window.location.search).get("list")
-var ver = "3.2"
+var vidID = new URLSearchParams(window.location.search).get("v");
+var list = new URLSearchParams(window.location.search).get("list");
+var loop = new URLSearchParams(window.location.search).get("loop");
+var time = new URLSearchParams(window.location.search).get("t");
+var ver = "3.2";
 
 async function getVD() {
   var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
-    vt.innerText = oembed.title
-    vc.innerText = oembed.author_name
-    vc.href = oembed.author_url
+  vt.innerText = oembed.title
+  vc.innerText = oembed.author_name
+  vc.href = oembed.author_url
 }
 
 if (!vidID) {
   if (sessionStorage.getItem("extInstalled")) {
-    location.replace("//youtube.com")
+    location.replace("https://youtube.com")
   } else {
     location.replace("/home.html")
   }
 } else {
-  if (list) {
-    ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&list=" + list;
-  } else {
-    ytplayer.src = "//www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1";
-    getVD()
+  var vidurl = "https://www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&color=white";
+  if (list) vidurl += "&list=" + list;
+  if (time) vidurl += "&start=" + time;
+  if (loop) vidurl += "&loop=" + loop;
+  ytplayer.src = vidurl;
+  getVD()
+  openytplayerBTN.onclick = function () {
+    sessionStorage.setItem("ytabnoredir", "1")
+    location.replace("https://youtube.com/watch?v=" + vidID + "&noytabredirect=1")
   }
-    openytplayerBTN.onclick = function() {
-      sessionStorage.setItem("ytabnoredir","1")
-      location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
-    }
 }
 
 if (getBrowser()) {
   if (getBrowser() == "CHROMIUM") {
-      downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
+    downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
   }
   if (getBrowser() == "FIREFOX") {
     downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
@@ -43,30 +45,30 @@ if (getBrowser()) {
     alert("Error Displaying Webpage")
   }
   if (sessionStorage.getItem("extInstalled")) {
-  if (sessionStorage.getItem("extInstalled") == ver) {
-    downloadBTN.innerHTML = ""
-  } else {
-    if (getBrowser() == "FIREFOX") {
-      alert("There is a new version of YouTube Simplified Redirector.")
+    if (sessionStorage.getItem("extInstalled") == ver) {
+      downloadBTN.innerHTML = ""
     } else {
-    alert("There is a new version of YouTube Simplified Redirector.")
-  }
-  }
+      if (getBrowser() == "FIREFOX") {
+        alert("There is a new version of YouTube Simplified Redirector.")
+      } else {
+        alert("There is a new version of YouTube Simplified Redirector.")
+      }
+    }
   }
 } else {
   alert("Your browser couldn't be identified. Please switch to Firefox, Chrome, or any Chromium based browser.")
 }
 
 setTimeout(function () {
-if (sessionStorage.getItem("extInstalled")) {
-  if (sessionStorage.getItem("extInstalled") == ver) {
-    downloadBTN.innerHTML = ""
-  } else {
-    if (getBrowser() == "FIREFOX") {
-      alert("There is a new version of YouTube Simplified Redirector.")
+  if (sessionStorage.getItem("extInstalled")) {
+    if (sessionStorage.getItem("extInstalled") == ver) {
+      downloadBTN.innerHTML = ""
     } else {
-    alert("There is a new version of YouTube Simplified Redirector.")
+      if (getBrowser() == "FIREFOX") {
+        alert("There is a new version of YouTube Simplified Redirector.")
+      } else {
+        alert("There is a new version of YouTube Simplified Redirector.")
+      }
+    }
   }
-  }
-  }
-},1000)
+}, 1000)

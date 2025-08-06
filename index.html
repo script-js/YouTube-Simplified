@@ -8,9 +8,9 @@
   <meta name="description" content="A simplified ad-free YouTube player">
   <meta name="title" content="YouTube Simplified">
   <link rel="icon" href="icon-fav.png" />
-  <link href="//script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+  <link href="https://script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
   <script src='https://exactalytics.pages.dev/import.js'></script>
-<script>analyticsInit('YouTube Simplified','3moxYInXFN6fp')</script>
+  <script>analyticsInit('YouTube Simplified', '3moxYInXFN6fp')</script>
 </head>
 <style>
   html {
@@ -22,49 +22,62 @@
     text-decoration: none;
     text-color: red;
   }
+
   img:hover {
     text-decoration: none;
     text-color: red;
   }
 </style>
+
 <body style="height: 240%;">
   <script>
-  if (localStorage.getItem("bypasspage") == "1") {
-    var vidID = new URLSearchParams(window.location.search).get("v")
-    location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
-  }
+    if (localStorage.getItem("bypasspage") == "1") {
+      var vidID = new URLSearchParams(window.location.search).get("v")
+      location.replace("https://youtube.com/watch?v=" + vidID + "&noytabredirect=1")
+    }
   </script>
-  <script src="//script-js.github.io/js-css/browserDetect.js"></script>
-  <a href="//youtube.com"><button style="position: absolute; left: 20px; top: 2%;height: 50px;width: 100px;text-align: center;"><img src="icon.png" width="16px"> YouTube</button></a>
-  <button id="openytplayerBTN" style="position: absolute; right: 20px; top: 3%;">Exit YouTube Simplified</button>
+  <script src="https://script-js.github.io/js-css/browserDetect.js"></script>
+  <a href="https://youtube.com"><button
+      style="position: absolute; left: 20px; top: 2%;height: 50px;width: 100px;text-align: center;"
+      title="Go to the YouTube homepage (Home Key)"><img src="icon.png" width="16px"> YouTube</button></a>
+  <button id="openytplayerBTN" style="position: absolute; right: 20px; top: 3%;"
+    title="View in the normal YouTube player (Esc)">Exit YouTube Simplified</button>
   <br>
   <div style="display: block; height: 3%;">&nbsp;</div>
-  <iframe id="ytplayer" width="65%" frameborder="0" height="30%" allowfullscreen style="margin: 0 auto;display: block;" style="border-radius: 15px;"></iframe>
-  <div style="text-align:center"><h1 id="vt"></h1><p><a id="vc"></a></p></div>
-  <div style="text-align: center;" id="downloadBTN"><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblocker-redirector/"><button>Download Extension for Firefox</button></a><a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension for Chrome</button></a></div>
+  <iframe id="ytplayer" width="65%" frameborder="0" height="30%" allowfullscreen style="margin: 0 auto;display: block;"
+    style="border-radius: 15px;"></iframe>
+  <div style="text-align:center">
+    <h1 id="vt"></h1>
+    <p><a id="vc"></a></p>
+  </div>
+  <div style="text-align: center;" id="downloadBTN"><a
+      href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblocker-redirector/"><button>Download Extension for
+        Firefox</button></a><a
+      href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download
+        Extension for Chrome</button></a></div>
   <script src="script.js"></script>
   <script>
-  if (localStorage.getItem("vptype") == "1") {
-    ytplayer.width = "96%"
-  }
-
-  if (localStorage.getItem("vptype") == "2") {
-    ytplayer.height = "35%"
-  }
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key == "Home") {
-      location.replace("//youtube.com")
+    if (localStorage.getItem("vptype") == "1") {
+      ytplayer.width = "96%"
     }
-  })
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key == "Escape" && e.repeat) {
-      sessionStorage.setItem("ytabnoredir","1")
-      location.replace("//youtube.com/watch?v=" + vidID + "&noytabredirect=1")
-      console.log("home")
+    if (localStorage.getItem("vptype") == "2") {
+      ytplayer.height = "35%"
     }
-  })
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key == "Home") {
+        location.replace("https://youtube.com")
+      }
+    })
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key == "Escape" && e.repeat) {
+        sessionStorage.setItem("ytabnoredir", "1")
+        location.replace("https://youtube.com/watch?v=" + vidID + "&noytabredirect=1")
+        console.log("home")
+      }
+    })
   </script>
 </body>
 
