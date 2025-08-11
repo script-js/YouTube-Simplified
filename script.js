@@ -24,7 +24,7 @@ if (!vidID) {
   if (time) vidurl += "&start=" + time;
   if (loop) vidurl += "&loop=" + loop;
   ytplayer.src = vidurl;
-  getVD()
+  if (!list) getVD();
   openytplayerBTN.onclick = function () {
     sessionStorage.setItem("ytabnoredir", "1")
     location.replace("https://youtube.com/watch?v=" + vidID + "&noytabredirect=1")
