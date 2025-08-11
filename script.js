@@ -49,11 +49,7 @@ if (getBrowser()) {
     if (sessionStorage.getItem("extInstalled") == ver) {
       downloadBTN.innerHTML = ""
     } else {
-      if (getBrowser() == "FIREFOX") {
-        alert("There is a new version of YouTube Simplified Redirector.")
-      } else {
-        alert("There is a new version of YouTube Simplified Redirector.")
-      }
+      alert("There is a new version of YouTube Simplified Redirector.")
     }
   }
 } else {

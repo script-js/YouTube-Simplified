@@ -53,7 +53,7 @@
   </div>
   <script src="script.js"></script>
   <script>
-    if (localStorage.getItem("vptype") == "1") {
+    if (localStorage.getItem("vptype") == "1" || window.innerHeight < 600) {
       ytplayer.width = "96%"
     } else if (localStorage.getItem("vptype") == "2") {
       ytplayer.height = "35%"
