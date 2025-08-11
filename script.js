@@ -21,7 +21,7 @@ if (!vidID) {
 } else {
   var vidurl = "https://www.youtube-nocookie.com/embed/" + vidID + "?autoplay=1&color=white";
   if (list) vidurl += "&list=" + list;
-  if (time) vidurl += "&start=" + time;
+  if (time) vidurl += "&start=" + parseInt(time);
   if (loop) vidurl += "&loop=" + loop;
   ytplayer.src = vidurl;
   if (!list) getVD();
