@@ -110,9 +110,11 @@
     } else {
       themedrop.value = "";
     }
-    if (sessionStorage.getItem("extInstalled")) {
-      extOptions.style.display = "block"
-    }
+    setTimeout(function () {
+      if (sessionStorage.getItem("extInstalled")) {
+        extOptions.style.display = "block"
+      }
+    }, 1000)
   </script>
 </body>
 
