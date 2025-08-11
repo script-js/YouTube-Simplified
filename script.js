@@ -5,7 +5,7 @@ var time = new URLSearchParams(window.location.search).get("t");
 var ver = "3.2";
 
 async function getVD() {
-  var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID + "&format=json")).json();
+  var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID.split("?")[0] + "&format=json")).json();
   vt.innerText = oembed.title
   vc.innerText = oembed.author_name
   vc.href = oembed.author_url
