@@ -55,10 +55,9 @@
   <script>
     if (localStorage.getItem("vptype") == "1") {
       ytplayer.width = "96%"
-    }
-
-    if (localStorage.getItem("vptype") == "2") {
-      ytplayer.height = "35%"
+    } else if (localStorage.getItem("vptype") == "2") {
+      ytplayer.height = "40%"
+      ytplayer.width = "96%"
     }
 
     window.addEventListener("keydown", (e) => {
