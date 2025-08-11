@@ -51,7 +51,7 @@ button a {
 
 button a:hover {
     background: none;
-    color: var(--text-color);
+    color: var(--hover-text-color);
 }
 
 a {
