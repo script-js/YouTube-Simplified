@@ -5,20 +5,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Options</title>
+  <script src="themeset.js"></script>
   <link rel="icon" href="icon-fav.png" />
   <link href="ui.css" rel="stylesheet" type="text/css" />
 </head>
 <script>
   function setAutoRedirect(setting) {
     localStorage.setItem("bypasspage", setting)
-    stext.innerHTML = "Saved"
-    setTimeout(function () { stext.innerHTML = "" }, 2000)
+    showSavedText();
   }
 
   function setVideoType(setting) {
     localStorage.setItem("vptype", setting)
+    showSavedText();
+  }
+
+  function setTheme(setting) {
+    if (setting) {
+      if (setting == "Custom") {
+        customCreator.style.display = "block"
+      } else {
+        localStorage.setItem("themeColors", setting)
+        if (localStorage.getItem("customTheme")) {
+          localStorage.removeItem("customTheme")
+        }
+        location.reload();
+      }
+    } else {
+      localStorage.removeItem("themeColors")
+      location.reload();
+    }
+  }
+
+  function showSavedText() {
     stext.innerHTML = "Saved"
     setTimeout(function () { stext.innerHTML = "" }, 2000)
+  }
+
+  function saveCustomTheme() {
+    localStorage.setItem("customTheme", "true");
+    localStorage.setItem("themeColors", `${bcolor.value},${acolor.value}`);
+    location.reload();
   }
 </script>
 
@@ -27,20 +54,41 @@
   <p></p>
   <h2 class="catTitle">Player</h2>
   <br>
-  <label for="vtypedrop">Video Player Mode</label>
+  <label for="vtypedrop">Video Player Mode:</label>
   <select onchange="setVideoType(this.value)" name="vtypedrop" id="vtypedrop">
     <option value="0">Centered</option>
     <option value="1">Wide</option>
     <option value="2">Full</option>
   </select>
   <div id="extOptions">
-    <label for="redirdrop">Automatically Redirect to YouTube Simplified</label>
+    <label for="redirdrop">Automatically Redirect to YouTube Simplified:</label>
     <select onchange="setAutoRedirect(this.value)" id="redirdrop" name="redirdrop">
       <option value="0">Yes</option>
       <option value="1">No</option>
     </select>
   </div>
-
+  <h2 class="catTitle">Theming</h2>
+  <label for="themedrop">Theme:</label>
+  <select onchange="setTheme(this.value)" name="themedrop" id="themedrop">
+    <option value="">Automatic (Light/Dark)</option>
+    <option value="#FFFFFF,lightblue">Default Light</option>
+    <option value="#000000,#004184">Default Dark</option>
+    <option value="#000000,#FFFFFF">Basic Black</option>
+    <option value="#FFFFFF,#000000">Basic White</option>
+    <option value="#1e1e1e,#ffffff">Basic Gray</option>
+    <option value="#20dd4a,#51c5e6">Mint</option>
+    <option value="#34971c,#103e00">Forest Green</option>
+    <option value="#cc000f,#3cffff">Red and Blue</option>
+    <option value="#ff80c0,#ffe13c">Pink</option>
+    <option value="#ffb122,#11d0b9">Desert</option>
+    <option value="#1a0000,#ffffff">Black Cherry</option>
+    <option>Custom</option>
+  </select>
+  <div id="customCreator">
+    Background Color: <input type="color" id="bcolor"><br>
+    Accent Color: <input type="color" id="acolor">
+    <br><button onclick="saveCustomTheme()">Save</button>
+  </div>
   <p id="stext"></p>
   <script>
     if (localStorage.getItem("bypasspage")) {
@@ -48,6 +96,19 @@
     }
     if (localStorage.getItem("vptype")) {
       vtypedrop.value = localStorage.getItem("vptype")
+    }
+    if (localStorage.getItem("themeColors")) {
+      var colors = localStorage.getItem("themeColors").split(",")
+      bcolor.value = colors[0]
+      acolor.value = colors[1]
+      if (localStorage.getItem("customTheme") == "true") {
+        themedrop.value = "Custom";
+        customCreator.style.display = "block"
+      } else {
+        themedrop.value = localStorage.getItem("themeColors")
+      }
+    } else {
+      themedrop.value = "";
     }
     if (sessionStorage.getItem("extInstalled")) {
       extOptions.style.display = "block"

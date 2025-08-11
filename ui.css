@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-html {
-    --text-color: #FFFFFF;
-    --back-color: black;
-    --accent: #004184;
+@media (prefers-color-scheme: dark) {
+    html {
+        --text-color: white;
+        --back-color: black;
+        --accent: #004184;
+    }
 }
+
+@media (prefers-color-scheme: light) {
+    html {
+        --text-color: black;
+        --back-color: white;
+        --accent: lightblue;
+    }
+}
+
+html {
+    --hover-text-color: var(--text-color);
+}
+
 
 body {
     background-color: var(--back-color);
@@ -47,8 +62,8 @@ a {
 a:hover {
     background-color: var(--accent);
     text-decoration: none;
+    color: var(--hover-text-color);
 }
-
 
 input:focus,
 input:hover,
@@ -57,6 +72,7 @@ select:hover,
 select:open {
     border-radius: 2px;
     background-color: var(--accent);
+    color: var(--hover-text-color);
 }
 
 .catTitle {
@@ -64,6 +80,7 @@ select:open {
     font-weight: bolder;
 }
 
-#extOptions {
+#extOptions,
+#customCreator {
     display: none;
 }
