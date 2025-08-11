@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>YouTube Simplified</title>
   <link rel="icon" href="icon-fav.png" />
-  <link href="https://script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+  <link href="ui.css" rel="stylesheet" type="text/css" />
   <meta name="description" content="A simplified ad-free YouTube player">
   <meta name="title" content="YouTube Simplified">
   <script src='https://exactalytics.pages.dev/import.js'></script>
@@ -19,13 +19,16 @@
   <img src="icon-hp.png" style="margin:auto;" width="300" />
   <h1>YouTube Simplified</h1>
   <h3>Experience a simple ad-free YouTube player</h3>
-  <input id="rediri" placeholder="Youtube URL" /><button onclick="convert(rediri.value)">Go</button>
+  <input id="rediri" placeholder="Youtube URL" />
+  <button onclick="convert(rediri.value)">Go</button>
   <p></p>
-  <div style="text-align: center;" id="downloadBTN"><a
-      href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension
-        for Firefox</button></a><a
-      href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download
-        Extension for Chrome</button></a></div>
+  <div style="text-align: center;" id="downloadBTN"><button><a
+        href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/" target="_blank">Download
+        Extension
+        for Firefox</a></button><button><a
+        href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"
+        target="_blank">Download
+        Extension for Chrome</a></button></div>
   <script>
     function convert(item) {
       var filter1 = item.replace("www.youtube.com/watch", "ytsimplified.pages.dev/")
@@ -34,10 +37,10 @@
     }
     if (getBrowser()) {
       if (getBrowser() == "CHROMIUM") {
-        downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
+        downloadBTN.innerHTML = '<button><a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0" target="_blank">Download Extension</button></a></button>'
       }
       if (getBrowser() == "FIREFOX") {
-        downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
+        downloadBTN.innerHTML = '<button><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/" target="_blank">Download Extension</a></button>'
       }
       if (getBrowser() == "IE") {
         alert("Error Displaying Webpage")

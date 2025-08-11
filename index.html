@@ -8,7 +8,7 @@
   <meta name="description" content="A simplified ad-free YouTube player">
   <meta name="title" content="YouTube Simplified">
   <link rel="icon" href="icon-fav.png" />
-  <link href="https://script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+  <link href="ui.css" rel="stylesheet" type="text/css" />
   <script src='https://exactalytics.pages.dev/import.js'></script>
   <script>analyticsInit('YouTube Simplified', '3moxYInXFN6fp')</script>
 </head>
@@ -16,16 +16,6 @@
   html {
     height: 100%;
     width: 100%;
-  }
-
-  a:hover {
-    text-decoration: none;
-    text-color: red;
-  }
-
-  img:hover {
-    text-decoration: none;
-    text-color: red;
   }
 </style>
 
@@ -37,7 +27,7 @@
     }
   </script>
   <script src="https://script-js.github.io/js-css/browserDetect.js"></script>
-  <a href="https://youtube.com"><button
+  <a href="https://youtube.com" style="padding: 0;"><button
       style="position: absolute; left: 20px; top: 2%;height: 50px;width: 100px;text-align: center;"
       title="Go to the YouTube homepage (Home Key)"><img src="icon.png" width="16px"> YouTube</button></a>
   <button id="openytplayerBTN" style="position: absolute; right: 20px; top: 3%;"
@@ -50,11 +40,15 @@
     <h1 id="vt"></h1>
     <p><a id="vc"></a></p>
   </div>
-  <div style="text-align: center;" id="downloadBTN"><a
-      href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblocker-redirector/"><button>Download Extension for
-        Firefox</button></a><a
-      href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download
-        Extension for Chrome</button></a></div>
+  <div style="text-align: center;" id="downloadBTN">
+    <button><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblocker-redirector/"
+        target="_blank">Download Extension
+        for Firefox</a></button>
+    <button><a
+        href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"
+        target="_blank">Download
+        Extension for Chrome</a></button>
+  </div>
   <script src="script.js"></script>
   <script>
     if (localStorage.getItem("vptype") == "1") {

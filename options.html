@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Options</title>
   <link rel="icon" href="icon-fav.png" />
-  <link href="https://script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+  <link href="ui.css" rel="stylesheet" type="text/css" />
 </head>
 <script>
   function setAutoRedirect(setting) {
@@ -25,11 +25,7 @@
 <body style="text-align: center;">
   <h1><img src="icon.png" width="30px">&nbsp;YouTube Simplified Redirector Options</h1>
   <p></p>
-  <label for="redirdrop">Automatically Redirect to YouTube Simplified</label>
-  <select onchange="setAutoRedirect(this.value)" id="redirdrop" name="redirdrop">
-    <option value="0">Yes</option>
-    <option value="1">No</option>
-  </select>
+  <h2 class="catTitle">Player</h2>
   <br>
   <label for="vtypedrop">Video Player Mode</label>
   <select onchange="setVideoType(this.value)" name="vtypedrop" id="vtypedrop">
@@ -37,6 +33,13 @@
     <option value="1">Wide</option>
     <option value="2">Full</option>
   </select>
+  <div id="extOptions">
+    <label for="redirdrop">Automatically Redirect to YouTube Simplified</label>
+    <select onchange="setAutoRedirect(this.value)" id="redirdrop" name="redirdrop">
+      <option value="0">Yes</option>
+      <option value="1">No</option>
+    </select>
+  </div>
 
   <p id="stext"></p>
   <script>
@@ -45,6 +48,9 @@
     }
     if (localStorage.getItem("vptype")) {
       vtypedrop.value = localStorage.getItem("vptype")
+    }
+    if (sessionStorage.getItem("extInstalled")) {
+      extOptions.style.display = "block"
     }
   </script>
 </body>

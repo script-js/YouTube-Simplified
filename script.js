@@ -32,10 +32,10 @@ if (!vidID) {
 
 if (getBrowser()) {
   if (getBrowser() == "CHROMIUM") {
-    downloadBTN.innerHTML = '<a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0"><button>Download Extension</button></a></div>'
+    downloadBTN.innerHTML = '<button><a href="https://chromewebstore.google.com/detail/youtube-simplified-redire/ckfgpfbjidmnafhbbflpjodifgplfgoe?hl=en&authuser=0" target="_blank">Download Extension</button></a></button>'
   }
   if (getBrowser() == "FIREFOX") {
-    downloadBTN.innerHTML = '<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/"><button>Download Extension</button></a>'
+    downloadBTN.innerHTML = '<button><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-simplified-redirector/" target="_blank">Download Extension</a></button>'
   }
   if (getBrowser() == "IE") {
     alert("Error Displaying Webpage")
