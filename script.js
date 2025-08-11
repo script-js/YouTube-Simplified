@@ -45,13 +45,6 @@ if (getBrowser()) {
     alert("Error Displaying Webpage")
     alert("Error Displaying Webpage")
   }
-  if (sessionStorage.getItem("extInstalled")) {
-    if (sessionStorage.getItem("extInstalled") == ver) {
-      downloadBTN.innerHTML = ""
-    } else {
-      alert("There is a new version of YouTube Simplified Redirector.")
-    }
-  }
 } else {
   alert("Your browser couldn't be identified. Please switch to Firefox, Chrome, or any Chromium based browser.")
 }
@@ -61,11 +54,7 @@ setTimeout(function () {
     if (sessionStorage.getItem("extInstalled") == ver) {
       downloadBTN.innerHTML = ""
     } else {
-      if (getBrowser() == "FIREFOX") {
-        alert("There is a new version of YouTube Simplified Redirector.")
-      } else {
-        alert("There is a new version of YouTube Simplified Redirector.")
-      }
+      alert("There is a new version of YouTube Simplified Redirector.");
     }
   }
 }, 1000)
