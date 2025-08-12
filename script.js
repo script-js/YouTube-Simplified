@@ -2,6 +2,7 @@ var vidID = new URLSearchParams(window.location.search).get("v");
 var list = new URLSearchParams(window.location.search).get("list");
 var loop = new URLSearchParams(window.location.search).get("loop");
 var time = new URLSearchParams(window.location.search).get("t");
+var unpublishedver = "3.3"
 var ver = "3.2";
 
 async function getVD() {
@@ -51,7 +52,7 @@ if (getBrowser()) {
 
 setTimeout(function () {
   if (sessionStorage.getItem("extInstalled")) {
-    if (sessionStorage.getItem("extInstalled") == ver) {
+    if (sessionStorage.getItem("extInstalled") == ver || sessionStorage.getItem("extInstalled") == unpublishedver) {
       downloadBTN.innerHTML = ""
     } else {
       alert("There is a new version of YouTube Simplified Redirector.");
