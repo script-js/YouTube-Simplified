@@ -3,7 +3,7 @@ var list = new URLSearchParams(window.location.search).get("list");
 var loop = new URLSearchParams(window.location.search).get("loop");
 var time = new URLSearchParams(window.location.search).get("t");
 var unpublishedver = "3.3"
-var ver = "3.2";
+var ver = "3.3";
 
 async function getVD() {
   var oembed = await (await fetch("https://youtube.com/oembed?url=http://www.youtube.com/watch?v=" + vidID.split("?")[0] + "&format=json")).json();
