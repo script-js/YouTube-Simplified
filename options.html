@@ -89,6 +89,8 @@
     Accent Color: <input type="color" id="acolor">
     <br><button onclick="saveCustomTheme()">Save</button>
   </div>
+  <h2 class="catTitle">Settings Backup (powered by <a href="https://sync-js.pages.dev/" style="font-weight: bolder;" target="_blank">sync.js</a>)</h2>
+  <button onclick="sjs.backUp()">Back Up</button> | <button onclick="sjs.restore()">Restore</button>
   <p id="stext"></p>
   <script>
     if (localStorage.getItem("bypasspage")) {
@@ -117,5 +119,6 @@
     }, 1000)
   </script>
 </body>
+<script src="https://sync-js.pages.dev/import.js"></script>
 
 </html>
